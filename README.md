@@ -48,3 +48,27 @@ export default tseslint.config({
   },
 })
 ```
+
+
+
+1. Why do we need to `import React from "react"` in our files?
+to use jsx (html inside js)
+
+2. If I were to console.log(page) in index.js, what would show up?
+a js object in json format
+
+3. What's wrong with this code:
+```
+const page = (
+    <h1>Hello</h1>
+    <p>This is my website!</p>
+)
+```
+needs div or fragment
+
+4. What does it mean for something to be "declarative" instead of "imperative"?
+tell what needs to be done, not how it needs to be done
+
+5. What does it mean for something to be "composable"?
+divide a page into several components which can be reused multiple times
+
