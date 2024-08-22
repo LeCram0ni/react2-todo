@@ -1,0 +1,88 @@
+#root {
+  --blue: #05d8ff;
+  width: 100%;
+  text-align: left;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* CUSTOM */
+
+img.logo.react {
+  margin: auto 1rem auto auto;
+  will-change: filter;
+  transition: filter 300ms;
+  width: 60px;
+  height: 60px;
+  animation: logo-spin 8s linear infinite;
+}
+
+img.logo.react:hover {
+  filter: drop-shadow(0px 0px 8px #78ebff);
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #21222A;
+}
+
+nav h1 {
+  color: var(--blue);
+  /*ReactFacts*/
+}
+
+li::marker {
+  color: var(--blue);
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+h1 {
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin: auto 4rem auto 2rem;
+}
+
+#img-logo {
+  display: flex;
+  align-items: center;
+  margin: auto 4rem auto 4rem;
+  margin-right: auto;
+}
+
+#content {
+  margin: 5% 20% 0 20%;
+
+}
+
+#full {
+
+  background-image: url("/src/assets/react.png");
+  background-repeat: no-repeat;
+  background-position-x: 120.8%;
+  background-position-y: center;
+  background-size: 350px;
+}
+
+#text {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+

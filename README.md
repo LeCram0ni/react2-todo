@@ -72,3 +72,69 @@ tell what needs to be done, not how it needs to be done
 5. What does it mean for something to be "composable"?
 divide a page into several components which can be reused multiple times
 
+
+-----
+
+
+1. What is a React component?
+A reusable function which returns jsx react elements. Pascal casing html element
+
+2. What's wrong with this code?
+```
+function myComponent() {
+    return (
+        <small>I'm tiny text!</small>
+    )
+}
+```
+no Pascal Casing 
+
+3. What's wrong with this code?
+```
+function Header() {
+    return (
+        <header>
+            <nav>
+                <img src="./react-logo.png" width="40px" />
+            </nav>
+        </header>
+    )
+}
+
+ReactDOM.render(Header(), document.getElementById("root"))
+```
+
+no round brackets but pointy brackets
+
+
+
+
+
+
+navbar
+  Logo
+  Title
+
+Main
+  Heading
+  List
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
