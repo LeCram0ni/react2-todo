@@ -1,5 +1,7 @@
 #root {
   --blue: #05d8ff;
+  --yellow: #f9e900;
+  --grey: #21222A;
   width: 100%;
   text-align: left;
   position: absolute;
@@ -80,6 +82,10 @@ ul>li>span {
   padding: 0 1rem 0 1rem;
 }
 
+ul {
+  padding: 0;
+}
+
 
 h1 {
   letter-spacing: -0.04em;
@@ -123,9 +129,15 @@ h1 {
   color: var(--blue);
 }
 
+.todo-text-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .todo-textfield {
   margin: 2% 0;
-  width: 93.3%;
+  width: 80%;
   height: 2rem;
   font-size: 16pt;
 
@@ -133,8 +145,18 @@ h1 {
   font-weight: 300;
 
   color-scheme: light dark;
-  color: #21222A;
+  color: var(--grey);
   background-color: white;
-  border-radius: 12px;
-  padding: 4px 3%;
+
+  padding: 4px 1.1rem;
+  border-radius: 16px;
 }
+
+.todo-button {
+  height: 44px;
+  width: 150px;
+  margin: 0 0 0 20px;
+  border-radius: 16px;
+}
+
+.todo-button:hover {}
