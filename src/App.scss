@@ -6,6 +6,7 @@
   top: 0;
 }
 
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -16,21 +17,32 @@
   }
 }
 
+@keyframes logo-squeeze {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0.4);
+  }
+}
+
 
 /* CUSTOM */
 
-img.logo.react {
+span.logo.react {
   margin: auto 1rem auto auto;
   will-change: filter;
   transition: filter 300ms;
   width: 60px;
   height: 60px;
-  animation: logo-spin 8s linear infinite;
+  animation: logo-squeeze 4s ease 0s infinite alternate both;
 }
 
-img.logo.react:hover {
+span.logo.react:hover {
   filter: drop-shadow(0px 0px 8px #78ebff);
 }
+
 
 .top {
   width: 100%;
@@ -45,17 +57,35 @@ nav h1 {
   /*ReactFacts*/
 }
 
+/*
 li::marker {
   color: var(--blue);
   font-size: 1.8em;
   line-height: 1;
 }
+*/
+
+li {
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  padding: 12px 0 12px 0;
+  border-radius: 500px;
+  font-size: 16pt;
+  font-weight: 200;
+}
+
+
+ul>li>span {
+  padding: 0 1rem 0 1rem;
+}
+
 
 h1 {
   letter-spacing: -0.04em;
 }
 
-h2 {
+.listname {
   margin: auto 4rem auto 2rem;
 }
 
@@ -64,20 +94,12 @@ h2 {
   align-items: center;
   margin: auto 4rem auto 4rem;
   margin-right: auto;
+  user-select: none;
 }
 
 #content {
   margin: 5% 20% 0 20%;
 
-}
-
-#full {
-
-  background-image: url("/src/assets/react.png");
-  background-repeat: no-repeat;
-  background-position-x: 120.8%;
-  background-position-y: center;
-  background-size: 350px;
 }
 
 #text {
@@ -86,3 +108,33 @@ h2 {
 }
 
 
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+#img-logo>span {
+  margin: auto 1rem auto 1rem;
+  margin-right: auto;
+  font-size: 39pt;
+  color: var(--blue);
+}
+
+.todo-textfield {
+  margin: 2% 0;
+  width: 93.3%;
+  height: 2rem;
+  font-size: 16pt;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+
+  color-scheme: light dark;
+  color: #21222A;
+  background-color: white;
+  border-radius: 12px;
+  padding: 4px 3%;
+}
