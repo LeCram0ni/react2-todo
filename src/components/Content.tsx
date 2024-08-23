@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import List from "./List";
 
+export type TodoItem = {
+    text: string;
+    active: boolean;
+};
+
 export default function Content() {
 
     const local = localStorage.getItem("todos");
-    const localInit: string[] = local ? JSON.parse(local) : ["Todo"];
+    const localInit: TodoItem[] = local ? JSON.parse(local) : [{ text: "Todo", active: false }];
 
     const [input, setInput] = useState(''); // '' ist Initialwert des Textfelds
-    const [todos, setTodos] = useState<string[]>(localInit); // "Todo" ist Initialwert des ersten Todos
-    const [first, setFirst] = useState<boolean>(false);
+    const [todos, setTodos] = useState<TodoItem[]>(localInit); // "Todo" ist Initialwert des ersten Todos
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value); // Aktualisiert den State mit dem eingetippten String
@@ -17,26 +21,30 @@ export default function Content() {
     const addTodo = () => {
         if (input.trim() === "") return; // wenn input leer, Abbruch
 
-        if (first) {
-            setTodos([input.trim()]);
-        } else {
-            setTodos(newTodo => [...newTodo, input.trim()]);
-        }
+        const newTodoItem: TodoItem = {
+            text: input.trim(),
+            active: true
+        };
 
-        setFirst(false);
-
+        setTodos(newTodo => [...newTodo, newTodoItem]);
         setInput("");
     }
-
 
     const deleteTodo = (indexD: number) => {
         setTodos(delTodo => delTodo.filter((_todo, index) => index !== indexD));
     }
 
+    const toggleActive = (index: number) => {
+        setTodos(prevTodos => prevTodos.map((item, i) =>
+            i === index ? { ...item, active: !item.active } : item
+        ));
+
+
+    }
+
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
     }, [todos])
-
 
     return (
         <div id="full">
@@ -50,11 +58,11 @@ export default function Content() {
                 </div>
 
                 {todos.length !== 0 ? //if
-                    <h2>Things that need to be done</h2> : //if true         V else
+                    <h2>Things that need to be done</h2> : //<if true      V if false
                     <h2 style={{ color: '#8dff00' }}>No things need to be done</h2>}
 
                 <ul>
-                    <List todo={todos} deleteTodo={deleteTodo} />
+                    <List todo={todos} deleteTodo={deleteTodo} toggleActive={toggleActive} />
                 </ul>
 
             </div>

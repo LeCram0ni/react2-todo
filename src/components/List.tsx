@@ -1,15 +1,18 @@
+import { TodoItem } from "./Content";
+
 type ListProps = {
-    todo: string[];
+    todo: TodoItem[];
     deleteTodo: (index: number) => void;
+    toggleActive: (index: number) => void;
 }
 
-export default function List({ todo, deleteTodo }: ListProps) {
+export default function List({ todo, deleteTodo, toggleActive }: ListProps) {
 
     return (
         <>
             {todo.map((todo, index) => (
-                <li key={index}>
-                    <span>{todo}</span>
+                <li className={`todo-item-${todo.active ? "active" : "inactive"}`} onClick={() => toggleActive(index)} key={index}>
+                    <span>{todo.text}</span>
                     <button className="delete-button" onClick={() => deleteTodo(index)}>Delete</button>
                 </li>
             ))}
