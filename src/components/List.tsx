@@ -1,12 +1,18 @@
-export default function List() {
+type ListProps = {
+    todo: string[];
+    deleteTodo: (index: number) => void;
+}
+
+export default function List({ todo, deleteTodo }: ListProps) {
+
     return (
         <>
-            <ul>
-                <li><span>Test</span></li>
-                <li><span>Test</span></li>
-                <li><span>Test</span></li>
-            </ul>
-
+            {todo.map((todo, index) => (
+                <li key={index}>
+                    <span>{todo}</span>
+                    <button className="delete-button" onClick={() => deleteTodo(index)}>Delete</button>
+                </li>
+            ))}
         </>
     );
 }

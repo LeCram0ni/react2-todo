@@ -6,9 +6,12 @@ export default function Header() {
                 <div id="img-logo">
 
                     <h1> Todo </h1>
+
                     <span className="material-symbols-outlined logo ">
-                        fact_check
-                    </span></div>
+                        fact_check  {/* Check icon top left */}
+                    </span>
+
+                </div>
                 <h2 className="listname"> Listname</h2>
             </nav>
         </header>
