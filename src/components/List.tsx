@@ -13,7 +13,7 @@ export default function List({ todo, deleteTodo, toggleActive }: ListProps) {
             {todo.map((todo, index) => (
                 <li className={`todo-item-${todo.active ? "active" : "inactive"}`} onClick={() => toggleActive(index)} key={index}>
                     <span>{todo.text}</span>
-                    <button className="delete-button" onClick={() => deleteTodo(index)}>Delete</button>
+                    <button className="delete-button" onClick={(e) => { e.stopPropagation(); deleteTodo(index) }}>Delete</button>
                 </li>
             ))}
         </>

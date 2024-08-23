@@ -39,7 +39,6 @@ export default function Content() {
             i === index ? { ...item, active: !item.active } : item
         ));
 
-
     }
 
     useEffect(() => {
