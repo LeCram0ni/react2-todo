@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 import List from "./List";
 
 export default function Content() {
@@ -30,7 +30,7 @@ export default function Content() {
 
 
     const deleteTodo = (indexD: number) => {
-        setTodos(delTodo => delTodo.filter((todo, index) => index !== indexD));
+        setTodos(delTodo => delTodo.filter((_todo, index) => index !== indexD));
     }
 
     useEffect(() => {
